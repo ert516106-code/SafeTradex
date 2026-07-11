@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 import { AuthProvider } from "./contexts/AuthContext";
 
+import Welcome from "./pages/Welcome";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import ForgotPassword from "./pages/ForgotPassword";
@@ -12,12 +13,13 @@ export default function App() {
   return (
     <AuthProvider>
       <BrowserRouter>
+
         <Routes>
 
-          {/* Default Route */}
+          {/* Welcome */}
           <Route
             path="/"
-            element={<Navigate to="/login" replace />}
+            element={<Welcome />}
           />
 
           {/* Authentication */}
@@ -41,7 +43,7 @@ export default function App() {
             element={<ResetPassword />}
           />
 
-          {/* Dashboard */}
+          {/* Main App */}
           <Route
             path="/home"
             element={<Home />}
@@ -50,22 +52,11 @@ export default function App() {
           {/* 404 */}
           <Route
             path="*"
-            element={
-              <div className="min-h-screen flex items-center justify-center bg-slate-950 text-white">
-                <div className="text-center">
-                  <h1 className="text-5xl font-bold">
-                    404
-                  </h1>
-
-                  <p className="mt-4 text-slate-400">
-                    Page Not Found
-                  </p>
-                </div>
-              </div>
-            }
+            element={<Navigate to="/" replace />}
           />
 
         </Routes>
+
       </BrowserRouter>
     </AuthProvider>
   );
