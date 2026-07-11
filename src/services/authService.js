@@ -55,7 +55,7 @@ export async function logoutUser() {
 }
 
 /**
- * Current User
+ * Get Current User
  */
 export async function getCurrentUser() {
   const {
@@ -71,7 +71,7 @@ export async function getCurrentUser() {
 }
 
 /**
- * Current Session
+ * Get Current Session
  */
 export async function getCurrentSession() {
   const {
@@ -87,18 +87,13 @@ export async function getCurrentSession() {
 }
 
 /**
- * Reset Password Email
+ * Send Password Reset Email
  */
 export async function sendPasswordReset(email) {
   const { error } =
-    await supabase.auth.resetPasswordForEmail(
-      email,
-      {
-        redirectTo:
-          window.location.origin +
-          "/reset-password",
-      }
-    );
+    await supabase.auth.resetPasswordForEmail(email, {
+      redirectTo: `${window.location.origin}/reset-password`,
+    });
 
   if (error) {
     throw error;
@@ -108,7 +103,18 @@ export async function sendPasswordReset(email) {
 /**
  * Update Password
  */
-export async function updatePassword(
+export async function updatePassword(password) {
+  const { data, error } =
+    await supabase.auth.updateUser({
+      password,
+    });
+
+  if (error) {
+    throw error;
+  }
+
+  return data;
+}export async function updatePassword(
   password
 ) {
   const { data, error } =
