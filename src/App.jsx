@@ -7,7 +7,11 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import ForgotPassword from "./pages/ForgotPassword";
 import ResetPassword from "./pages/ResetPassword";
+
 import Home from "./pages/Home";
+import Markets from "./pages/Markets";
+import Trade from "./pages/Trade";
+import Assets from "./pages/Assets";
 
 export default function App() {
   return (
@@ -23,6 +27,7 @@ export default function App() {
           />
 
           {/* Authentication */}
+
           <Route
             path="/login"
             element={<Login />}
@@ -44,12 +49,29 @@ export default function App() {
           />
 
           {/* Main App */}
+
           <Route
             path="/home"
             element={<Home />}
           />
 
-          {/* 404 */}
+          <Route
+            path="/markets"
+            element={<Markets />}
+          />
+
+          <Route
+            path="/trade"
+            element={<Trade />}
+          />
+
+          <Route
+            path="/assets"
+            element={<Assets />}
+          />
+
+          {/* Redirect */}
+
           <Route
             path="*"
             element={<Navigate to="/" replace />}
