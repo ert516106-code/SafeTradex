@@ -16,6 +16,7 @@ import ProfileItem from "./ProfileItem";
 export default function ProfileMenu({
   onOpenKYC,
   onOpenLanguage,
+  onOpenNotifications,
 }) {
   return (
     <>
@@ -56,7 +57,7 @@ export default function ProfileMenu({
         title="Notification Settings"
         subtitle="Manage alerts"
         color="#F59E0B"
-        onClick={() => {}}
+        onClick={onOpenNotifications}
       />
 
       <ProfileItem
