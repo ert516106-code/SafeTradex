@@ -13,7 +13,10 @@ import {
 
 import ProfileItem from "./ProfileItem";
 
-export default function ProfileMenu() {
+export default function ProfileMenu({
+  onOpenKYC,
+  onOpenLanguage,
+}) {
   return (
     <>
       <ProfileItem
@@ -21,7 +24,7 @@ export default function ProfileMenu() {
         title="KYC Verification"
         subtitle="Verify your identity"
         color="#3B82F6"
-        onClick={() => {}}
+        onClick={onOpenKYC}
       />
 
       <ProfileItem
@@ -45,7 +48,7 @@ export default function ProfileMenu() {
         title="Language"
         subtitle="Choose your language"
         color="#06B6D4"
-        onClick={() => {}}
+        onClick={onOpenLanguage}
       />
 
       <ProfileItem
