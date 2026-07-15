@@ -17,6 +17,11 @@ export default function ProfileMenu({
   onOpenKYC,
   onOpenLanguage,
   onOpenNotifications,
+  onOpenSecurity,
+  onOpenBinding,
+  onOpenTerms,
+  onOpenAbout,
+  onOpenSupport,
 }) {
   return (
     <>
@@ -24,7 +29,8 @@ export default function ProfileMenu({
         icon={ShieldCheck}
         title="KYC Verification"
         subtitle="Verify your identity"
-        color="#3B82F6"
+        badge="Pending"
+        color="#2563EB"
         onClick={onOpenKYC}
       />
 
@@ -39,23 +45,24 @@ export default function ProfileMenu({
       <ProfileItem
         icon={KeyRound}
         title="Login Password"
-        subtitle="Change your password"
-        color="#2563EB"
+        subtitle="Update your password"
+        color="#3B82F6"
         onClick={() => {}}
       />
 
       <ProfileItem
         icon={Languages}
         title="Language"
-        subtitle="Choose your language"
+        subtitle="English"
         color="#06B6D4"
         onClick={onOpenLanguage}
       />
 
       <ProfileItem
         icon={Bell}
-        title="Notification Settings"
+        title="Notifications"
         subtitle="Manage alerts"
+        badge="2"
         color="#F59E0B"
         onClick={onOpenNotifications}
       />
@@ -63,42 +70,44 @@ export default function ProfileMenu({
       <ProfileItem
         icon={Shield}
         title="Security Center"
-        subtitle="Protect your account"
-        color="#10B981"
-        onClick={() => {}}
+        subtitle="Recommended"
+        color="#22C55E"
+        onClick={onOpenSecurity}
       />
 
       <ProfileItem
         icon={Link2}
         title="Account Binding"
-        subtitle="Email • Phone • Google"
+        subtitle="Email • Phone"
         color="#6366F1"
-        onClick={() => {}}
+        onClick={onOpenBinding}
       />
 
       <ProfileItem
         icon={FileText}
         title="Terms of Service"
-        subtitle="Read our policies"
+        subtitle="Legal information"
         color="#64748B"
-        onClick={() => {}}
+        onClick={onOpenTerms}
       />
 
       <ProfileItem
         icon={Info}
         title="About SafeTrade"
-        subtitle="Version & information"
+        subtitle="Version & Platform"
         color="#0EA5E9"
-        onClick={() => {}}
+        onClick={onOpenAbout}
       />
 
       <ProfileItem
         icon={Headset}
         title="Contact Support"
-        subtitle="24/7 Customer Service"
+        subtitle="24/7 Customer Support"
         color="#EC4899"
-        onClick={() => {}}
+        onClick={onOpenSupport}
       />
     </>
   );
 }
+
+     
