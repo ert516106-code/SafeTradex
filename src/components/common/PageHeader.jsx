@@ -1,8 +1,9 @@
-import { Bell } from "lucide-react";
+import { Bell, User } from "lucide-react";
 
 export default function PageHeader({
   title,
   subtitle,
+  onProfileClick,
 }) {
   return (
     <header className="sticky top-0 z-40 bg-[#07111F]/90 backdrop-blur-xl border-b border-slate-800">
@@ -23,14 +24,28 @@ export default function PageHeader({
 
         </div>
 
-        <button className="w-11 h-11 rounded-2xl bg-[#101E31] border border-slate-700 flex items-center justify-center">
+        <div className="flex items-center gap-3">
 
-          <Bell
-            size={20}
-            className="text-white"
-          />
+          <button className="w-11 h-11 rounded-2xl bg-[#101E31] border border-slate-700 flex items-center justify-center">
 
-        </button>
+            <Bell
+              size={20}
+              className="text-white"
+            />
+
+          </button>
+
+          <button
+            onClick={onProfileClick}
+            className="w-11 h-11 rounded-full bg-gradient-to-br from-blue-500 to-violet-600 flex items-center justify-center"
+          >
+            <User
+              size={20}
+              className="text-white"
+            />
+          </button>
+
+        </div>
 
       </div>
 
