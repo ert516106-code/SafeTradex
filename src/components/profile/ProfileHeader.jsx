@@ -8,6 +8,12 @@ import CopyUIDButton from "./CopyUIDButton";
 
 export default function ProfileHeader({
   avatar = "🤖",
+  username,
+  email,
+  uid,
+  vip = 0,
+  kycVerified = false,
+  online = true,
   onAvatarClick,
 }) {
   return (
@@ -57,7 +63,7 @@ export default function ProfileHeader({
               fontWeight: 700,
             }}
           >
-            SafeTrade User
+            {username || "SafeTrade User"}
           </div>
 
           <div
@@ -67,7 +73,7 @@ export default function ProfileHeader({
               marginTop: 4,
             }}
           >
-            user@safetrade.com
+            {email || "No email"}
           </div>
 
           <div
@@ -75,7 +81,7 @@ export default function ProfileHeader({
               marginTop: 12,
             }}
           >
-            <CopyUIDButton uid="600001" />
+            <CopyUIDButton uid={uid || "600001"} />
           </div>
         </div>
 
@@ -100,15 +106,21 @@ export default function ProfileHeader({
             gap: 6,
             padding: "8px 12px",
             borderRadius: 999,
-            background: "#17305F",
-            color: "#4ADE80",
+            background: kycVerified
+              ? "#123A26"
+              : "#3A2A12",
+            color: kycVerified
+              ? "#4ADE80"
+              : "#FB923C",
             fontWeight: 600,
             fontSize: 13,
           }}
         >
           <ShieldCheck size={15} />
 
-          KYC Unverified
+          {kycVerified
+            ? "🟢 KYC Verified"
+            : "🟠 KYC Pending"}
         </div>
 
         <div
@@ -126,7 +138,7 @@ export default function ProfileHeader({
         >
           <Gem size={15} />
 
-          VIP 0
+          VIP {vip}
         </div>
       </div>
     </div>
