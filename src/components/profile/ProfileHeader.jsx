@@ -6,7 +6,10 @@ import {
 
 import CopyUIDButton from "./CopyUIDButton";
 
-export default function ProfileHeader() {
+export default function ProfileHeader({
+  avatar = "🤖",
+  onAvatarClick,
+}) {
   return (
     <div
       style={{
@@ -29,6 +32,7 @@ export default function ProfileHeader() {
         {/* Avatar */}
 
         <button
+          onClick={onAvatarClick}
           style={{
             width: 72,
             height: 72,
@@ -37,11 +41,12 @@ export default function ProfileHeader() {
             background:
               "linear-gradient(135deg,#4F8CFF,#7C5CFF)",
             color: "#fff",
-            fontSize: 30,
+            fontSize: 34,
             cursor: "pointer",
+            transition: ".2s",
           }}
         >
-          👤
+          {avatar}
         </button>
 
         <div style={{ flex: 1 }}>
