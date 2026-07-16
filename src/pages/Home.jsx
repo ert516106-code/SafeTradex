@@ -41,7 +41,10 @@ export default function Home() {
               </button>
 
               <button
-                onClick={() => setProfileOpen(true)}
+                onClick={() => {
+                  alert("Profile button works!");
+                  setProfileOpen(true);
+                }}
                 className="w-11 h-11 rounded-full bg-gradient-to-br from-blue-500 to-violet-600 flex items-center justify-center shadow-lg shadow-blue-500/30"
               >
                 <User size={20} />
