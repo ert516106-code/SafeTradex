@@ -1,57 +1,58 @@
 import { useState } from "react";
+import { Bell, User, Menu } from "lucide-react";
 
 import PortfolioCard from "../components/home/PortfolioCard";
 import QuickActions from "../components/home/QuickActions";
 import Watchlist from "../components/home/Watchlist";
 import EarnBanner from "../components/home/EarnBanner";
 import MarketNews from "../components/home/MarketNews";
-import BottomNavigation from "../components/home/BottomNavigation";
 
 import ProfileDrawer from "../components/profile/ProfileDrawer";
 
 export default function Home() {
-  const [profileOpen, setProfileOpen] =
-    useState(false);
+  const [profileOpen, setProfileOpen] = useState(false);
 
   return (
     <>
-      <div className="min-h-screen bg-[#07111F] text-white pb-28">
+      <div className="min-h-screen bg-[#07111F] text-white">
 
         {/* Header */}
+        <header className="sticky top-0 z-40 bg-[#07111F]/90 backdrop-blur-xl border-b border-slate-800">
+          <div className="max-w-md mx-auto px-5 py-4 flex items-center justify-between">
 
-        <div className="sticky top-0 z-20 bg-[#07111F]/90 backdrop-blur-md border-b border-slate-800">
-
-          <div className="max-w-md mx-auto flex items-center justify-between px-5 py-4">
-
-            <button className="text-2xl">
-              ☰
+            <button className="w-11 h-11 rounded-2xl bg-[#101E31] border border-slate-700 flex items-center justify-center">
+              <Menu size={20} />
             </button>
 
             <div className="text-center">
-
               <h1 className="text-xl font-bold tracking-wide">
-                SafeTradex
+                SafeTrade
               </h1>
 
               <p className="text-xs text-slate-400">
-                Trade Global, Invest Safe
+                Secure Crypto Exchange
               </p>
+            </div>
+
+            <div className="flex items-center gap-3">
+
+              <button className="w-11 h-11 rounded-2xl bg-[#101E31] border border-slate-700 flex items-center justify-center">
+                <Bell size={20} />
+              </button>
+
+              <button
+                onClick={() => setProfileOpen(true)}
+                className="w-11 h-11 rounded-full bg-gradient-to-br from-blue-500 to-violet-600 flex items-center justify-center shadow-lg shadow-blue-500/30"
+              >
+                <User size={20} />
+              </button>
 
             </div>
 
-            <button
-              onClick={() =>
-                setProfileOpen(true)
-              }
-              className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-violet-600 text-lg"
-            >
-              🤖
-            </button>
-
           </div>
+        </header>
 
-        </div>
-
+        {/* Content */}
         <div className="max-w-md mx-auto px-4 py-5 space-y-5">
 
           <PortfolioCard />
@@ -66,17 +67,13 @@ export default function Home() {
 
         </div>
 
-        <BottomNavigation />
       </div>
 
       <ProfileDrawer
         open={profileOpen}
-        onClose={() =>
-          setProfileOpen(false)
-        }
+        onClose={() => setProfileOpen(false)}
         onLogout={() => {
           setProfileOpen(false);
-
           alert("Logout coming soon");
         }}
       />
