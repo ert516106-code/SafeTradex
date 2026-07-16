@@ -46,7 +46,10 @@ export default function Home() {
               </button>
 
               <button
-                onClick={() => navigate("/profile")}
+                onClick={() => {
+                  alert("PROFILE BUTTON CLICKED");
+                  navigate("/profile");
+                }}
                 className="w-11 h-11 rounded-full bg-gradient-to-br from-blue-500 to-violet-600 flex items-center justify-center"
               >
                 <User
