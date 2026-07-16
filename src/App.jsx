@@ -12,6 +12,7 @@ import Home from "./pages/Home";
 import Markets from "./pages/Markets";
 import Trade from "./pages/Trade";
 import Assets from "./pages/Assets";
+import Profile from "./pages/Profile";
 
 export default function App() {
   return (
@@ -68,6 +69,11 @@ export default function App() {
           <Route
             path="/assets"
             element={<Assets />}
+          />
+
+          <Route
+            path="/profile"
+            element={<Profile />}
           />
 
           {/* Redirect */}
