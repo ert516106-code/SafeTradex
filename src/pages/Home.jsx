@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Menu, Bell, User } from "lucide-react";
 
 import PortfolioCard from "../components/home/PortfolioCard";
@@ -11,6 +12,7 @@ import ProfileDrawer from "../components/profile/ProfileDrawer";
 
 export default function Home() {
   const [profileOpen, setProfileOpen] = useState(false);
+  const navigate = useNavigate();
 
   return (
     <>
@@ -44,11 +46,8 @@ export default function Home() {
               </button>
 
               <button
-                onClick={() => {
-                  alert("Profile button clicked!");
-                  setProfileOpen(true);
-                }}
-                className="w-11 h-11 rounded-full bg-gradient-to-br from-blue-500 to-violet-600 flex items-center justify-center shadow-lg shadow-blue-500/30"
+                onClick={() => navigate("/profile")}
+                className="w-11 h-11 rounded-full bg-gradient-to-br from-blue-500 to-violet-600 flex items-center justify-center"
               >
                 <User
                   size={20}
