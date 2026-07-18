@@ -1,2 +1,2 @@
 # SafeTradex
-SafeTrade is a non-custodial platform 
+SafeTrade is a non-custodial platform for traders
