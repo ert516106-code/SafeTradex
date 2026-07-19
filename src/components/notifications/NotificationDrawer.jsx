@@ -248,7 +248,7 @@ function EmptyState() {
   );
 }
 
-export default function NotificationCenter({ initialNotifications }) {
+export default function NotificationDrawer({ initialNotifications }) {
   const [notifications, setNotifications] = useState(initialNotifications || DEFAULT_NOTIFICATIONS);
   const [isOpen, setIsOpen] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
@@ -435,12 +435,10 @@ export default function NotificationCenter({ initialNotifications }) {
               animation: isClosing ? "none" : "stDrawerSlideDown 0.38s cubic-bezier(0.16,1,0.3,1)",
             }}
           >
-            {/* Drag handle */}
             <div style={{ display: "flex", justifyContent: "center", padding: "10px 0 2px" }}>
               <div style={{ width: 36, height: 4, borderRadius: 3, background: "rgba(255,255,255,0.15)" }} />
             </div>
 
-            {/* Header */}
             <div
               style={{
                 display: "flex",
@@ -502,7 +500,6 @@ export default function NotificationCenter({ initialNotifications }) {
               </div>
             </div>
 
-            {/* List */}
             <div
               className="st-notif-scroll"
               style={{
@@ -524,4 +521,4 @@ export default function NotificationCenter({ initialNotifications }) {
       )}
     </>
   );
-            }
+          }
